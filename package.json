@@ -1,0 +1,14 @@
+{
+  "name": "daw-socket-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Xat en temps real per a la pràctica de DAW",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}

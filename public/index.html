@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xat</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="chat">
+      <form id="join-form" class="join-form" novalidate>
+        <label for="name">Nom</label>
+        <input id="name" name="name" type="text" maxlength="20" required>
+        <p id="name-error" class="error" role="alert" aria-live="polite"></p>
+        <button type="submit">Entrar</button>
+      </form>
+
+      <section id="chat-room" class="chat-room" hidden aria-label="Xat">
+        <header class="chat-header">
+          <div>
+            <h1>Xat</h1>
+            <p>Nom: <span id="participant-name"></span></p>
+          </div>
+          <p id="connection-status" class="connection-status" role="status">Desconnectat</p>
+        </header>
+
+        <ol id="messages" class="messages" aria-label="Missatges" aria-live="polite"></ol>
+
+        <form id="message-form" class="message-form">
+          <label class="visually-hidden" for="message-input">Missatge</label>
+          <input id="message-input" name="message" type="text" maxlength="500" autocomplete="off" required>
+          <output id="character-count" for="message-input">0 / 500</output>
+          <button id="send-button" type="submit" disabled>Enviar</button>
+        </form>
+        <p id="message-error" class="error" role="alert" aria-live="polite"></p>
+      </section>
+    </main>
+  </body>
+</html>
