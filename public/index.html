@@ -6,23 +6,23 @@
     <title>Xat</title>
     <link rel="stylesheet" href="/styles.css">
     <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/chat-config.js" defer></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
     <main class="chat">
+      <h1 class="chat-title">Xat</h1>
+
       <form id="join-form" class="join-form" novalidate>
         <label for="name">Nom</label>
-        <input id="name" name="name" type="text" maxlength="20" required>
-        <p id="name-error" class="error" role="alert" aria-live="polite"></p>
+        <input id="name" name="name" type="text" autocomplete="nickname" maxlength="20" required>
+        <p id="name-error" class="error" role="alert"></p>
         <button type="submit">Entrar</button>
       </form>
 
       <section id="chat-room" class="chat-room" hidden aria-label="Xat">
         <header class="chat-header">
-          <div>
-            <h1>Xat</h1>
-            <p>Nom: <span id="participant-name"></span></p>
-          </div>
+          <p>Nom: <span id="participant-name"></span></p>
           <p id="connection-status" class="connection-status" role="status">Desconnectat</p>
         </header>
 
@@ -34,7 +34,7 @@
           <output id="character-count" for="message-input">0 / 500</output>
           <button id="send-button" type="submit" disabled>Enviar</button>
         </form>
-        <p id="message-error" class="error" role="alert" aria-live="polite"></p>
+        <p id="message-error" class="error" role="alert"></p>
       </section>
     </main>
   </body>

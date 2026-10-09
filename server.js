@@ -2,21 +2,12 @@ const express = require("express");
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
 const path = require("node:path");
+const nameColors = require("./public/chat-config");
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 const port = process.env.PORT || 3000;
-const nameColors = [
-  "#1d4ed8",
-  "#047857",
-  "#b45309",
-  "#b91c1c",
-  "#6d28d9",
-  "#0f766e",
-  "#be185d",
-  "#4d7c0f",
-];
 
 app.use(express.static(path.join(__dirname, "public")));
 
