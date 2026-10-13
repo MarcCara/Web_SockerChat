@@ -5,9 +5,12 @@
   "description": "Xat en temps real per a la pràctica de DAW",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:cluster": "node cluster-server.js",
+    "start:cluster:no-adapter": "node cluster-server.js --without-adapter"
   },
   "dependencies": {
+    "@socket.io/cluster-adapter": "^0.3.0",
     "express": "^4.21.2",
     "socket.io": "^4.8.1"
   }

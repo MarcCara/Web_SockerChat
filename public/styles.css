@@ -37,6 +37,35 @@ body {
   background: #f7f9fb;
 }
 
+.join-form button,
+.room-actions button {
+  padding: 6px 10px;
+  color: #fff;
+  background: #356da5;
+  border: 1px solid #2c5d8c;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.join-form button:hover:not(:disabled),
+.room-actions button:hover:not(:disabled) {
+  background: #2c5d8c;
+}
+
+.join-form button:disabled,
+.room-actions button:disabled {
+  background: #8496a8;
+  border-color: #8496a8;
+  cursor: not-allowed;
+}
+
+.room-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .chat-room {
   display: flex;
   flex-direction: column;
@@ -64,6 +93,11 @@ body {
   margin-bottom: 0;
 }
 
+.chat-header #recovery-status {
+  color: #4b5563;
+  font-size: 0.85rem;
+}
+
 .connection-status {
   color: #991b1b;
   font-weight: bold;
@@ -72,6 +106,14 @@ body {
 
 .connection-status.connected {
   color: #166534;
+}
+
+.chat-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(110px, 150px);
+  flex: 1;
+  min-height: 0;
+  gap: 8px;
 }
 
 .messages {
@@ -84,6 +126,26 @@ body {
   border: 2px inset #fff;
   background: #fff;
   list-style: none;
+}
+
+.participants-panel {
+  min-width: 0;
+  padding: 8px;
+  overflow-y: auto;
+  border: 1px solid #d5dde5;
+  border-radius: 4px;
+  background: #f7f9fb;
+}
+
+.participants-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.participants-panel ul {
+  margin: 0;
+  padding-left: 18px;
+  overflow-wrap: anywhere;
 }
 
 .message {
@@ -158,6 +220,17 @@ input {
   cursor: not-allowed;
 }
 
+#simulate-disconnect {
+  align-self: flex-start;
+  padding: 5px 9px;
+  color: #263238;
+  background: #f2f6fa;
+  border: 1px solid #aebbc8;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+
 input:focus,
 button:focus-visible {
   outline: 2px solid #6fa8dc;
@@ -191,5 +264,14 @@ button:focus-visible {
 
   .chat-room {
     height: calc(100vh - 16px);
+  }
+
+  .chat-content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .participants-panel {
+    max-height: 90px;
   }
 }

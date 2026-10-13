@@ -16,17 +16,35 @@
       <form id="join-form" class="join-form" novalidate>
         <label for="name">Nom</label>
         <input id="name" name="name" type="text" autocomplete="nickname" maxlength="20" required>
-        <p id="name-error" class="error" role="alert"></p>
-        <button type="submit">Entrar</button>
+        <label for="room-code">Codi de sala (per unir-se)</label>
+        <input id="room-code" name="room-code" type="text" autocomplete="off" maxlength="6">
+        <p id="room-error" class="error" role="alert"></p>
+        <div class="room-actions">
+          <button type="submit" value="create">Crear sala</button>
+          <button type="submit" value="join">Unir-se a una sala</button>
+        </div>
       </form>
 
       <section id="chat-room" class="chat-room" hidden aria-label="Xat">
         <header class="chat-header">
           <p>Nom: <span id="participant-name"></span></p>
+          <p>Sala: <span id="room-code-display"></span></p>
           <p id="connection-status" class="connection-status" role="status">Desconnectat</p>
+          <p id="recovery-status" role="status">Encara no hi ha hagut cap reconnexió.</p>
         </header>
 
-        <ol id="messages" class="messages" aria-label="Missatges" aria-live="polite"></ol>
+        <div class="room-actions">
+          <button id="simulate-disconnect" type="button">Simular tall del transport</button>
+          <button id="leave-room" type="button">Abandonar la sala</button>
+        </div>
+
+        <div class="chat-content">
+          <ol id="messages" class="messages" aria-label="Missatges" aria-live="polite"></ol>
+          <aside class="participants-panel" aria-label="Participants de la sala">
+            <h2>Participants</h2>
+            <ul id="participants"></ul>
+          </aside>
+        </div>
 
         <form id="message-form" class="message-form">
           <label class="visually-hidden" for="message-input">Missatge</label>
